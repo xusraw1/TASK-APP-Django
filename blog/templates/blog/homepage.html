@@ -2,10 +2,14 @@
 {% block title %}{{ title }}{% endblock %}
 {% block content %}
     <h1>Main Page</h1>
-    {% for task in tasks %}
-        <div class="alert alert-warning mt-2">
-            <h2>{{ task.title }}</h2>
-            <p>{{ task.text }}</p>
-        </div>
-    {% endfor %}
+    {% if tasks %}
+        {% for task in tasks %}
+            <div class="alert alert-warning mt-2">
+                <h2>{{ task.title }}</h2>
+                <p>{{ task.text }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h2>Task is Empty</h2>
+    {% endif %}
 {% endblock %}
